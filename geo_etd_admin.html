@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Electronic Thesis and Dissertation</title>    
+	
+	<script  src="/__/firebase/5.3.0/firebase-app.js"></script>
+    
+    <script  src="/__/firebase/5.3.0/firebase-auth.js"></script>
+    <script  src="/__/firebase/5.3.0/firebase-database.js"></script>
+    <script  src="/__/firebase/5.3.0/firebase-messaging.js"></script>
+    <script  src="/__/firebase/5.3.0/firebase-storage.js"></script>
+    
+    <script  src="/__/firebase/init.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+	
+	<link rel="stylesheet" href="css/material.css">
+	<script src="js/material.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<style type="text/css">
+		body {
+			background: #fff;
+			position: relative;
+		}
+		.mdl-mega-footer {
+			margin-top: 50px;
+		}
+		.mdl-layout__header .mdl-layout__drawer-button {
+			position: absolute;
+			background-color: #081159;
+		}
+		.mdl-layout__drawer {
+			background-color: #fff;
+		}
+		.material-icons {
+			color: #fff;
+		}
+		.mdl-layout__header-row {
+			background-color: #081159;
+		}
+		#nav {
+			color: #040f68
+		}
+		h3 {
+			color: #040f68;
+			margin-top: 10px;
+			padding-left: 8%;
+			padding-bottom: 10px;
+			font-family: Verdana;
+		}
+		h5 {
+			color: #0c1875;
+			padding-left: 12%;
+			font-family: Verdana;
+			font-size: 18px;
+		}
+	</style>
+  </head>
+  <body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header mdl-layout__header--scroll">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">Admin</span>
+					<div class="mdl-layout-spacer"></div>
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="geo_etd_home.html"><i class="small material-icons">home</i></a>
+						<a class="mdl-navigation__link" href="geo_etd_thesis.html"><i class="small material-icons">info</i></a>
+						<a class="mdl-navigation__link" href="geo_etd_publisher.html"><i class="small material-icons">book</i></a>
+						<a class="mdl-navigation__link" href="geo_etd_admin.html"><i class="small material-icons">people</i></a>
+						<a class="mdl-navigation__link" href="geo_etd_search.html"><i class="small material-icons">search</i></a>
+					</nav>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title" style="font-size: 60px;color: #0c1875;padding-top: 25px;padding-left: 45px"><b><i>ETD</b></i></span>
+				<nav class="mdl-navigation">						
+					<a class="mdl-navigation__link" href="geo_etd_home.html" id="nav"><i class="small material-icons" style="padding-right: 20px;color: #0c1875">home</i>Home</a>
+					<a class="mdl-navigation__link" href="geo_etd_thesis.html" id="nav"><i class="small material-icons" style="padding-right: 20px;color: #0c1875">info</i>ThesisResource</a>
+					<a class="mdl-navigation__link" href="geo_etd_publisher.html" id="nav"><i class="small material-icons" style="padding-right: 20px;color: #0c1875">book</i>Publisher</a>
+					<a class="mdl-navigation__link" href="geo_etd_admin.html" id="nav"><i class="small material-icons" style="padding-right: 20px;color: #0c1875">people</i>Admin</a>
+					<a class="mdl-navigation__link" href="geo_etd_search.html" id="nav"><i class="small material-icons" style="padding-right: 20px;color: #0c1875">search</i>Search</a>
+				</nav>
+			</div>
+			<main class="mdl-layout-content">
+				<div class="page-content">
+					<div class="mdl-grid demo-content mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+						<div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell-6-col-phone" style="padding-left: 5%">
+							<img class="article-image" src="image/etd.png">
+						</div>
+						<div class="mdl-cell mdl-cell--9-col-desktop mdl-cell--8-col-tablet mdl-cell-12-col-phone">
+							<h3><b>Electronic Thesis and Dissertation</b></h3>
+							<h5><i>Source from Computer University (Mandalay)</i></h5>
+						</div>
+					</div>
+					<div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading...</div>
+					<footer class="mdl-mega-footer">
+						<div class="mdl-mega-footer__middle-section">
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">Features</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="#">About</a></li>
+									<li><a href="#">Terms</a></li>
+									<li><a href="#">Partners</a></li>
+									<li><a href="#">Updates</a></li>
+								</ul>
+							</div>
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">Details</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="#">Specs</a></li>
+									<li><a href="#">Tools</a></li>
+									<li><a href="#">Resources</a></li>
+								</ul>
+							</div>
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">Technology</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="#">How it works</a></li>
+									<li><a href="#">Patterns</a></li>
+									<li><a href="#">Usage</a></li>
+									<li><a href="#">Products</a></li>
+									<li><a href="#">Contracts</a></li>
+								</ul>
+							</div>
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">FAQ</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="#">Questions</a></li>
+									<li><a href="#">Answers</a></li>
+									<li><a href="#">Contact us</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="mdl-mega-footer__bottom-section">
+							<div class="mdl-logo">Title</div>
+							<ul class="mdl-mega-footer__link-list">
+								<li><a href="#">Help</a></li>
+								<li><a href="#">Privacy & Terms</a></li>
+							</ul>
+						</div>
+					</footer>
+				</div>
+			</main>
+		</div>		
+	</body>
+</html>
