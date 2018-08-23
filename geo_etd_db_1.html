@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="mdl-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Electronic Thesis and Disseratation</title>
+
+		<link rel="stylesheet" href="css/material.css">
+		<script src="js/material.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+		<style>
+			.mdl-layout__header-row {
+				background-color: #081159;
+			}
+			table, th, td {
+				border: 1px solid black;
+			}
+			#db {
+				height: 9cm;
+			}
+			#btn{
+				padding-left: 70px;
+				padding-right: 70px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				font-size: 20px;
+				border-style: double;
+				background-color: #fff;
+				color: #040f68;
+			}
+			#btn:hover {
+				box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+				border-style: solid;
+				border-color: #d9dff4;
+				border-width: 5px;
+				background-color: #4d5bd1;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<nav class="mdl-navigation mdl-layout">
+						<a class="mdl-navigation__link" href="#"><i class="material-icons" style="font-size: 35px;padding-right: 20px;">arrow_back</i></a>
+						<a class="mdl-navigation__link" href="geo_etd_admin.html"><span style="font-size:15px; padding-right: 15px">Admin</span></a>
+						<a class="mdl-navigation__link" href="#"><span style="font-size:15px; padding-right: 15px">Logout</span></a>
+					</nav>
+				</div>
+			</header>
+			<main class="mdl-layout__content">
+				<div class="page-content">
+					<div class="mdl-grid demo-content mdl-cell mdl-cell--12-col">
+						<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2008</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2009</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2010</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2011</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2012</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2013</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2014</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2015</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="geo_etd_link.html" id="btn">2016</a>
+						</div>
+						<div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="padding-left: 20px;">	
+							<table>
+								<tbody>
+									<tr>
+										<td>ID</td>
+										<td><input type="text" placeholder="Enter Key for database eg:001" id="txt_id"></td>
+									</tr>
+									<tr>
+												<td>Name</td>
+												<td> <input type="text" placeholder="Enter author name" id="name"></td>
+											</tr>
+											<tr>
+												<td>Degree</td>
+												<td><input type="text" placeholder="Enter degree" id="degree"></td>
+											</tr>
+											<tr>
+												<td>Supervisor Name</td>
+												<td><input type="text" placeholder="Enter supervisor name" id="supervisor"></td>
+											</tr>
+											<tr>
+												<td>Title</td>
+												<td><input type="text" placeholder="Enter thesis title" id="title"></td>
+											</tr>
+											<tr>
+												<td>Major</td>
+												<td><input type="text" placeholder="Enter major" id="major"></td>
+											</tr>
+											<tr>
+												<td>Abstract</td>
+												<td><input type="text" placeholder="Enter abstraction" id="abstract"></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>
+													<button id="btn_create" onclick="Create()">Create</button>
+													<button id="btn_update" onclick="Update()">Update</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<table id="crud" style="margin-top: 20px">       
+										<tbody>
+											<tr>
+												<td><input type="text" id="txt_delete" placeholder="Enter id that u delete"></td>
+												<td><input type="button" id="btn_delete" onclick="Delete()" value="Delete"></td>
+											</tr>									
+										</tbody>
+									</table>
+						</div>
+						<div class="mdl-cell mdl-cell--7-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="div_table">
+							<table id="aa">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Major</th>
+										<th>Degree</th>
+										<th>Supervisor</th>
+										<th>Thesis Title</th>
+										<th>Abstract</th>
+									</tr>
+								</thead>
+								<tbody id="div_crud_table">
+									<tr>
+										<td>NWAY HNAUNG THEIN SWE</td>
+										<td>Information Retrival Techniques</td>
+										<td id="db">M.C.Sc</td>
+										<td id="db">Dr Win Aye</td>
+										<td>KEYWORD-BASED DOCUMENT RETRIEVAL SYATEM</td>
+										<td>
+											As  more and more documents become electronically available 
+											‘finding documents in large databases that fit user’s needs 
+											is becoming increasingly important .In the past, the document 
+											search problem was dealt with using the database query approach
+											or the text-based search approach.Most studies of data mining
+											have focused on the structured data, such as relational, 
+											transactional and data warehouse data. However, in reality, 
+											a substantial portion of the available information is stored in 
+											text databases (or document database), which consists of large 
+											collection of documents from various sources , such as new articles,
+											research papers. Data stored in most text databases are semi-structured.
+											data in that they are neither completely unstructured nor completely structured
+											Thus, text mining has become an increasingly popular and essential theme in 
+											data mining. This system is intended to develop
+										</td>
+									</tr>
+									<tr>
+										<td>NWAY HNAUNG THEIN SWE</td>
+										<td>Information Retrival Techniques</td>
+										<td id="db">M.C.Sc</td>
+										<td id="db">Dr Win Aye</td>
+										<td>KEYWORD-BASED DOCUMENT RETRIEVAL SYATEM</td>
+										<td>
+											As  more and more documents become electronically available 
+											‘finding documents in large databases that fit user’s needs 
+											is becoming increasingly important .In the past, the document 
+											search problem was dealt with using the database query approach
+											or the text-based search approach.Most studies of data mining
+											have focused on the structured data, such as relational, 
+											transactional and data warehouse data. However, in reality, 
+											a substantial portion of the available information is stored in 
+											text databases (or document database), which consists of large 
+											collection of documents from various sources , such as new articles,
+											research papers. Data stored in most text databases are semi-structured.
+											data in that they are neither completely unstructured nor completely structured
+											Thus, text mining has become an increasingly popular and essential theme in 
+											data mining. This system is intended to develop
+										</td>
+									</tr>
+									<tr>
+										<td>NWAY HNAUNG THEIN SWE</td>
+										<td>Information Retrival Techniques</td>
+										<td id="db">M.C.Sc</td>
+										<td id="db">Dr Win Aye</td>
+										<td>KEYWORD-BASED DOCUMENT RETRIEVAL SYATEM</td>
+										<td>
+											As  more and more documents become electronically available 
+											‘finding documents in large databases that fit user’s needs 
+											is becoming increasingly important .In the past, the document 
+											search problem was dealt with using the database query approach
+											or the text-based search approach.Most studies of data mining
+											have focused on the structured data, such as relational, 
+											transactional and data warehouse data. However, in reality, 
+											a substantial portion of the available information is stored in 
+											text databases (or document database), which consists of large 
+											collection of documents from various sources , such as new articles,
+											research papers. Data stored in most text databases are semi-structured.
+											data in that they are neither completely unstructured nor completely structured
+											Thus, text mining has become an increasingly popular and essential theme in 
+											data mining. This system is intended to develop
+										</td>
+									</tr>
+									<tr>
+										<td>NWAY HNAUNG THEIN SWE</td>
+										<td>Information Retrival Techniques</td>
+										<td id="db">M.C.Sc</td>
+										<td id="db">Dr Win Aye</td>
+										<td>KEYWORD-BASED DOCUMENT RETRIEVAL SYATEM</td>
+										<td>
+											As  more and more documents become electronically available 
+											‘finding documents in large databases that fit user’s needs 
+											is becoming increasingly important .In the past, the document 
+											search problem was dealt with using the database query approach
+											or the text-based search approach.Most studies of data mining
+											have focused on the structured data, such as relational, 
+											transactional and data warehouse data. However, in reality, 
+											a substantial portion of the available information is stored in 
+											text databases (or document database), which consists of large 
+											collection of documents from various sources , such as new articles,
+											research papers. Data stored in most text databases are semi-structured.
+											data in that they are neither completely unstructured nor completely structured
+											Thus, text mining has become an increasingly popular and essential theme in 
+											data mining. This system is intended to develop
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
